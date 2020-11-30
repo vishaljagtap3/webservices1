@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -24,6 +25,15 @@ class WebUtil {
             URL url = new URL(apiUrl);
             HttpURLConnection httpURLConnection =
                     (HttpURLConnection) url.openConnection();
+
+            /*
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setDoOutput(true);
+            OutputStream out = httpURLConnection.getOutputStream();
+            out.write(data);
+            out.close();
+            */
+
             httpURLConnection.connect();
 
             if ( httpURLConnection.getResponseCode() != 200) {
